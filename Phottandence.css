@@ -1,0 +1,22 @@
+body{
+	background-color: #03A9F4;
+	/*background-image: url("Background 3.jpg"); */
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: 1500px;
+	margin-top: 40px;
+	margin-left: 40px;
+	margin-right: 40px;
+	font-size: 30px;
+	/*text-shadow: 5px 5px 5px #FFFFFF;
+	color: Black;*/
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+}
+.jumbotron{
+	background-color: White;
+}
+.padding{
+	padding-bottom: 40px;
+}

@@ -1,0 +1,41 @@
+<html>
+  <head>
+  	<meta charset="UTF-8">
+	<meta name="description" content="Project">
+	<meta name="keywords" content="HTML,CSS">
+	<meta name="author" content="Anirudh Goel">
+	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Phottandence.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="Icon.ico">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  </head>
+  <body>
+  	<div class='row'>
+	  	<div class='col-sm-10'>
+		  	<div class='jumbotron'>
+		  		<h1>Phottandence</h1>
+		  	</div>
+		</div>
+		  	<div class='col-sm-2'>
+				<img src="New Logo.png" alt="Logo" style="width:200px;height:200px;margin:0px 0px 0px 0px;">
+		  	</div>
+	</div>
+  	</div>
+    <div id='messagesDiv'></div>
+    <script>
+      var myDataRef = new Firebase('https://blistering-fire-6089.firebaseio.com/');
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.attend);
+      });
+      function displayChatMessage(name, attend) {
+        $('<div/>').text(name).prepend($('<em/>').text('Name: ')).appendTo($('#messagesDiv'));
+        $('<div class="padding"/>').text(attend).prepend($('<em/>').text('Attendance: ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
+  </body>
+</html>
